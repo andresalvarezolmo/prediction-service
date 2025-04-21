@@ -1,0 +1,117 @@
+{
+	"info": {
+		"_postman_id": "a155fb84-3673-40af-bce2-32637d1abc04",
+		"name": "prediction-service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44280740"
+	},
+	"item": [
+		{
+			"name": "Create Prediction",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\":123,\n    \"matchId\":2,\n    \"predictedWinner\":\"Team 3\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/predictions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"predictions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Predictions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/predictions?userId=123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"predictions"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "123"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Prediction",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"predictedWinner\":\"Team 3\",\n    \"predictionId\": \"1\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/predictions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"predictions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Heartbeat",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/actuator/health",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"actuator",
+						"health"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
